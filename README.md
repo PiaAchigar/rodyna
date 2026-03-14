@@ -1,54 +1,104 @@
-# React + TypeScript + Vite
+# Rodyna Farmacias — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-commerce web app for Rodyna Farmacias, a pharmacy chain in Buenos Aires, Argentina.
+Mobile-first design, built for the AMBA market (same-day delivery + in-store pickup).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Category | Technology |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build tool | Vite (SWC) |
+| Styling | Tailwind CSS v3 |
+| Routing | React Router v7 |
+| Forms | React Hook Form + Zod |
+| State management | Zustand (auth + cart, persisted) |
+| HTTP client | Axios |
+| Internationalization | react-i18next (ES / EN) |
+| Linting | ESLint + typescript-eslint |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Type-check + production build
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment Variables
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+Copy `.env.example` to `.env` and fill in the values:
+
+```bash
+cp .env.example .env
 ```
+
+| Variable | Description |
+|---|---|
+| `VITE_API_BASE_URL` | Backend API base URL |
+| `VITE_MP_PUBLIC_KEY` | Mercado Pago public key |
+| `VITE_APP_NAME` | App display name |
+| `VITE_DEFAULT_LOCALE` | Default language (`es`) |
+| `VITE_FALLBACK_LOCALE` | Fallback language (`en`) |
+| `VITE_DEFAULT_CURRENCY` | Default currency (`ARS`) |
+| `VITE_USD_RATE` | Manual ARS→USD exchange rate |
+| `VITE_GOOGLE_CLIENT_ID` | Google OAuth client ID |
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/          # Router setup
+├── components/   # Shared UI (layout, common)
+├── features/     # Auth, catalog, cart, checkout
+├── hooks/        # Custom React hooks
+├── i18n/         # Translation files (es.json, en.json)
+├── lib/          # Axios instance, utils, branch data
+├── pages/        # Page components
+├── store/        # Zustand stores (auth, cart)
+└── styles/       # Global styles
+```
+
+---
+
+## Pages
+
+| Route | Page | Status |
+|---|---|---|
+| `/` | Home | Done |
+| `/nosotros` | About | Done |
+| `/sucursales` | Branches | Done |
+| `/terminos-y-condiciones` | Terms & Conditions | Done |
+| `/catalogo` | Catalog | Coming soon |
+| `/producto/:slug` | Product detail | Pending |
+| `/carrito` | Cart | Pending |
+| `/checkout` | Checkout | Pending |
+| `/cuenta` | Account | Pending |
+| `/login` | Login | Pending |
+| `/register` | Register | Pending |
+| `*` | 404 | Done |
+
+---
+
+## Deployment
+
+Frontend is deployed on **Vercel**.
+Set all `VITE_*` environment variables in the Vercel project settings.
+
+### URL of the proyect: [www.rodynafarmacias.com.ar](www.rodynafarmacias.com.ar)

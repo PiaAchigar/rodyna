@@ -1,12 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/cruz_color_claro.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rodyna</title>
+
+    <!-- SEO básico -->
+    <title>Rodyna Farmacias | Salud y Bienestar</title>
+    <meta name="description" content="Rodyna Farmacias — Tu farmacia de confianza. Muy pronto tienda online con envíos a CABA y AMBA. Dermocosmética, perfumería y más." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Rodyna Farmacias | Salud y Bienestar" />
+    <meta property="og:description" content="Tu farmacia de confianza. Próximamente tienda online con envíos a CABA y AMBA." />
+    <meta property="og:site_name" content="Rodyna Farmacias" />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Skip link accesibilidad -->
+    <style>
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        background: #1d2343;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        z-index: 9999;
+        font-family: Inter, sans-serif;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: 0 0 0.5rem 0;
+      }
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
