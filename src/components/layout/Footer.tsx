@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import logoSvg from '../../assets/cruz_color_claro.svg'
 
-const WHATSAPP_NUMBER = 'PLACEHOLDER_WHATSAPP' // TODO: agregar número real
+const WHATSAPP_NUMBER = '+5491161333590' // TODO: agregar número real
 const INSTAGRAM_URL  = 'https://www.instagram.com/farmaciashunko/'
 const FACEBOOK_URL   = 'https://www.facebook.com/FarmaciasHunko/'
 const CONTACT_EMAIL  = 'info@rodynafarmacias.com.ar' // TODO: confirmar email
@@ -120,7 +120,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
-                  WhatsApp: +54 11 [PLACEHOLDER]
+                  WhatsApp: +54 11 Rodyna Farmacias
                 </a>
               </li>
             </ul>
