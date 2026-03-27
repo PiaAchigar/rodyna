@@ -1,4 +1,8 @@
-const USD_RATE = Number(import.meta.env.VITE_USD_RATE) || 1100
+// Support both Vite (VITE_USD_RATE) and Next.js (NEXT_PUBLIC_USD_RATE) env vars
+const USD_RATE =
+  Number(
+    (typeof process !== 'undefined' ? process.env?.NEXT_PUBLIC_USD_RATE : undefined)
+  ) || 1100
 
 export function formatPrice(arsPrice: number, currency: 'ARS' | 'USD'): string {
   if (currency === 'USD') {

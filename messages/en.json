@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "branches": "Branches",
+    "about": "About Us",
+    "catalog": "Catalog",
+    "login": "Sign In",
+    "register": "Sign Up",
+    "cart": "Cart",
+    "account": "My Account"
+  },
+  "hero": {
+    "badge": "Online Store Coming Soon",
+    "title": "Rodyna",
+    "subtitle": "Pharmacies",
+    "description": "Your favorite online pharmacy, coming soon. We are building a digital experience designed for your well-being.",
+    "ctaCatalog": "Browse catalog",
+    "ctaWhatsapp": "WhatsApp"
+  },
+  "about": {
+    "title": "We Care About What Matters Most: Your Health",
+    "description": "At Rodyna Farmacias, we are dedicated to caring for your health and well-being with a professional and human approach. We have years of experience providing trust, quality, and first-class service in dermo-cosmetics and parapharmacy.",
+    "feature1Title": "Expert Advice",
+    "feature1Desc": "Pharmacists and health professionals available to guide you with every question.",
+    "feature2Title": "Health Insurance",
+    "feature2Desc": "We accept a wide variety of health insurance plans and providers at our branches.",
+    "feature3Title": "Fast Delivery",
+    "feature3Desc": "Same-day delivery within CABA and Greater Buenos Aires. Also available for pick-up at any of our branches."
+  },
+  "branches": {
+    "title": "Our Branches",
+    "subtitle": "Find the nearest Rodyna Farmacias branch. We have over 16 years of experience.",
+    "seeAll": "See all branches",
+    "seeMap": "Get directions",
+    "hours": "Hours",
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "schedule": {
+    "title": "Opening Hours",
+    "location": "Strategic Location",
+    "locationDesc": "Our branches are located at strategic points across Greater Buenos Aires so there is always a pharmacy nearby."
+  },
+  "footer": {
+    "tagline": "Your trusted pharmacy since 2010.",
+    "navigation": "Navigation",
+    "legal": "Legal Information",
+    "contact": "Contact",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "returns": "Return Policy",
+    "disclaimer": "Responsible sale. If in doubt, consult your doctor or pharmacist. Always read the package insert.",
+    "rights": "All rights reserved."
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "lastUpdated": "Last updated: March 2025",
+    "content": "These Terms and Conditions govern the use of the Rodyna Farmacias website and e-commerce platform. By using this site, you agree to comply with these conditions. This document is being drafted and the final version will be published soon."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "goHome": "Go back home"
+  },
+  "comingSoon": "Coming soon",
+  "search": "Search products..."
+}

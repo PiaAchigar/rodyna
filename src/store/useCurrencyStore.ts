@@ -11,7 +11,7 @@ interface CurrencyState {
 export const useCurrencyStore = create<CurrencyState>()(
   persist(
     (set, get) => ({
-      currency: (import.meta.env.VITE_DEFAULT_CURRENCY as Currency) || 'ARS',
+      currency: ((process.env.NEXT_PUBLIC_DEFAULT_CURRENCY as Currency) || 'ARS') as Currency,
       toggle: () => set({ currency: get().currency === 'ARS' ? 'USD' : 'ARS' }),
     }),
     { name: 'rodyna-currency' }

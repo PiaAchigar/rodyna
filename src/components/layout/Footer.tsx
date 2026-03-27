@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import logoSvg from '../../assets/cruz_color_claro.svg'
+import { getTranslations } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
+import Image from 'next/image'
 
-const WHATSAPP_NUMBER = '+5491161333590' // TODO: agregar número real
-const INSTAGRAM_URL  = 'https://www.instagram.com/farmaciashunko/'
-const FACEBOOK_URL   = 'https://www.facebook.com/FarmaciasHunko/'
-const CONTACT_EMAIL  = 'info@rodynafarmacias.com.ar' // TODO: confirmar email
+const WHATSAPP_NUMBER = '+5491161333590' // TODO: mover a env
+const INSTAGRAM_URL = 'https://www.instagram.com/farmaciashunko/'
+const FACEBOOK_URL = 'https://www.facebook.com/FarmaciasHunko/'
+const CONTACT_EMAIL = 'info@rodynafarmacias.com.ar' // TODO: confirmar
 
-export default function Footer() {
-  const { t } = useTranslation()
+export default async function Footer() {
+  const t = await getTranslations()
   const year = new Date().getFullYear()
 
   return (
@@ -19,7 +19,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src={logoSvg} alt="Rodyna Farmacias" className="h-8 w-auto brightness-0 invert" />
+              <Image
+                src="/assets/cruz_color_claro.svg"
+                alt="Rodyna Farmacias"
+                width={32}
+                height={32}
+                className="h-8 w-auto brightness-0 invert"
+                unoptimized
+              />
               <span className="font-extrabold text-lg">
                 Rodyna <span className="text-primary">Farmacias</span>
               </span>
@@ -70,16 +77,21 @@ export default function Footer() {
 
           {/* Nav */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider text-secondary-gray mb-4">{t('footer.navigation')}</h3>
+            <h3 className="font-semibold text-sm uppercase tracking-wider text-secondary-gray mb-4">
+              {t('footer.navigation')}
+            </h3>
             <ul className="space-y-3">
               {[
-                { to: '/', label: t('nav.home') },
-                { to: '/sucursales', label: t('nav.branches') },
-                { to: '/nosotros', label: t('nav.about') },
-                { to: '/catalogo', label: t('nav.catalog') },
+                { href: '/', label: t('nav.home') },
+                { href: '/sucursales', label: t('nav.branches') },
+                { href: '/nosotros', label: t('nav.about') },
+                { href: '/catalogo', label: t('nav.catalog') },
               ].map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
+                <li key={l.href}>
+                  <Link
+                    href={l.href as '/'}
+                    className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -89,20 +101,31 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider text-secondary-gray mb-4">{t('footer.legal')}</h3>
+            <h3 className="font-semibold text-sm uppercase tracking-wider text-secondary-gray mb-4">
+              {t('footer.legal')}
+            </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/terminos-y-condiciones" className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
+                <Link
+                  href="/terminos-y-condiciones"
+                  className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
+                >
                   {t('footer.terms')}
                 </Link>
               </li>
               <li>
-                <Link to="/politica-de-privacidad" className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
+                <Link
+                  href="/politica-de-privacidad"
+                  className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
+                >
                   {t('footer.privacy')}
                 </Link>
               </li>
               <li>
-                <Link to="/politica-de-devoluciones" className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
+                <Link
+                  href="/politica-de-devoluciones"
+                  className="text-sm text-secondary-gray hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
+                >
                   {t('footer.returns')}
                 </Link>
               </li>
@@ -111,16 +134,26 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-sm uppercase tracking-wider text-secondary-gray mb-4">{t('footer.contact')}</h3>
+            <h3 className="font-semibold text-sm uppercase tracking-wider text-secondary-gray mb-4">
+              {t('footer.contact')}
+            </h3>
             <ul className="space-y-3 text-sm text-secondary-gray">
               <li>
-                <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
+                >
                   {CONTACT_EMAIL}
                 </a>
               </li>
               <li>
-                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline">
-                  WhatsApp: +54 11 Rodyna Farmacias
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
+                >
+                  WhatsApp: Rodyna Farmacias
                 </a>
               </li>
             </ul>
