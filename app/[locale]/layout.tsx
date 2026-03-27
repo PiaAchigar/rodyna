@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       'Tu farmacia online de confianza. Envíos rápidos en CABA y AMBA.',
     images: [
       {
-        url: '/assets/og-image.png',
+        url: '/assets/pildora.webp',
         width: 1200,
         height: 630,
         alt: 'Rodyna Farmacias',
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Rodyna Farmacias',
     description: 'Tu farmacia online de confianza. Envíos rápidos en CABA y AMBA.',
-    images: ['/assets/og-image.png'],
+    images: ['/assets/pildora.webp'],
   },
   icons: {
     icon: '/assets/cruz_color_claro.svg',
