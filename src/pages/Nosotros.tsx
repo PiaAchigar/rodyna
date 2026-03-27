@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-
+import { SEO } from '../components/SEO'
 import fondoFarmacia from '../assets/fondo_farmacia.png'
 import farmaceutica from '../assets/farmaceutica.png'
 
@@ -69,6 +69,11 @@ const proposito = [
 export default function Nosotros() {
   return (
     <>
+      <SEO
+        canonical="/nosotros"
+        title="Nosotros — Quiénes somos"
+        description="Rodyna Farmacias, ex Farmacia Social Hunko. Al servicio de la salud en CABA y AMBA. Conocé nuestro equipo, historia y valores."
+      />
       {/* ── HERO con imagen de fondo ── */}
       <section className="relative h-80 md:h-96 w-full flex items-end overflow-hidden" aria-labelledby="nosotros-hero-title">
         {/* Overlay */}

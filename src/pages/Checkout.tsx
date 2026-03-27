@@ -7,6 +7,7 @@ import { useCurrencyStore } from '../store/useCurrencyStore'
 import { useAuthStore } from '../store/useAuthStore'
 import { formatPrice } from '../lib/currency'
 import { branches } from '../lib/branches'
+import { SEO } from '../components/SEO'
 
 const TIME_SLOTS = ['09:00 – 13:00', '13:00 – 17:00', '17:00 – 21:00']
 const SHIPPING_METHODS = [
@@ -89,6 +90,7 @@ export default function Checkout() {
 
   return (
     <div className="container-page py-10">
+      <SEO canonical="/checkout" title="Finalizar compra" noindex={true} />
       {/* Breadcrumb */}
       <nav aria-label="Breadcrumb" className="text-sm text-secondary-gray mb-8 flex items-center gap-2">
         <Link to="/carrito" className="hover:text-primary transition-colors">Carrito</Link>

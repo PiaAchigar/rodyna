@@ -1,10 +1,16 @@
 import { useTranslation } from 'react-i18next'
+import { SEO } from '../components/SEO'
 
 export default function TerminosCondiciones() {
   const { t } = useTranslation()
 
   return (
     <section className="py-16" aria-labelledby="terms-title">
+      <SEO
+        canonical="/terminos-y-condiciones"
+        title="Términos y Condiciones"
+        description="Términos y condiciones de uso de Rodyna Farmacias. Política de compra, envíos y devoluciones."
+      />
       <div className="container-page max-w-3xl">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-8 text-sm text-secondary-gray">

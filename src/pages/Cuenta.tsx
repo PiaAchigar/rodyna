@@ -6,6 +6,7 @@ import { Navigate, Link } from 'react-router-dom'
 import { useAuthStore } from '../store/useAuthStore'
 import { formatPrice } from '../lib/currency'
 import { useCurrencyStore } from '../store/useCurrencyStore'
+import { SEO } from '../components/SEO'
 
 const profileSchema = z.object({
   firstName: z.string().min(2, 'Mínimo 2 caracteres'),
@@ -73,6 +74,7 @@ export default function Cuenta() {
 
   return (
     <div className="container-page py-10">
+      <SEO canonical="/cuenta" title="Mi cuenta" noindex={true} />
       <div className="flex flex-col lg:flex-row gap-8">
 
         {/* Sidebar */}

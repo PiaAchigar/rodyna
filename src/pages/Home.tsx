@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { branches } from '../lib/branches'
-import pildora from '../assets/pildora.png'
+import pildora from '../assets/pildora.webp'
+import { SEO } from '../components/SEO'
 
 const WHATSAPP_NUMBER = '+5491161333590' // TODO: reemplazar con número real
 
@@ -60,6 +61,10 @@ export default function Home() {
 
   return (
     <>
+      <SEO
+        canonical="/"
+        description="Rodyna Farmacias: tu farmacia de confianza en CABA y AMBA. Dermocosmética, perfumería y medicamentos OTC. Próximamente envíos a domicilio y retiro en sucursales."
+      />
       {/* ── HERO ── */}
       <section className="relative w-full py-16 lg:py-28 bg-white overflow-hidden" aria-label="Hero">
         {/* fondo decorativo */}

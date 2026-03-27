@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { SEO } from '../components/SEO'
 
 export default function NotFound() {
   const { t } = useTranslation()
 
   return (
     <section className="flex-1 flex items-center justify-center py-20 px-4" aria-labelledby="not-found-title">
+      <SEO title="Página no encontrada" noindex={true} />
       <div className="text-center max-w-md">
         {/* Número 404 */}
         <p className="text-9xl font-black text-primary/20 select-none" aria-hidden="true">404</p>

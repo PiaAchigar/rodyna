@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import logoSvg from '../assets/cruz_color_claro.svg'
+import { SEO } from '../components/SEO'
 
 const registerSchema = z.object({
   firstName: z.string().min(2, 'Mínimo 2 caracteres'),
@@ -59,6 +60,7 @@ export default function Register() {
 
   return (
     <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 px-4 bg-slate-50">
+      <SEO canonical="/register" title="Crear cuenta" noindex={true} />
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">

@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO básico -->
-    <title>Rodyna Farmacias | Salud y Bienestar</title>
-    <meta name="description" content="Rodyna Farmacias — Tu farmacia de confianza. Muy pronto tienda online con envíos a CABA y AMBA. Dermocosmética, perfumería y más." />
+    <title>Rodyna Farmacias | Farmacia Online — CABA y AMBA</title>
+    <meta name="description" content="Rodyna Farmacias: tu farmacia de confianza en CABA y AMBA. Dermocosmética, perfumería y medicamentos OTC. Próximamente envíos a domicilio y retiro en sucursales." />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.rodynafarmacias.com.ar/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.rodynafarmacias.com.ar" />
-    <meta property="og:title" content="Rodyna Farmacias | Salud y Bienestar" />
-    <meta property="og:description" content="Tu farmacia de confianza. Próximamente tienda online con envíos a CABA y AMBA." />
-    <meta property="og:image" content="https://www.rodynafarmacias.com.ar/pildora.png" />
+    <meta property="og:url" content="https://www.rodynafarmacias.com.ar/" />
+    <meta property="og:title" content="Rodyna Farmacias | Farmacia Online — CABA y AMBA" />
+    <meta property="og:description" content="Tu farmacia de confianza en CABA y AMBA. Dermocosmética, perfumería y medicamentos OTC. Próximamente tienda online con envíos a domicilio." />
+    <meta property="og:image" content="https://www.rodynafarmacias.com.ar/pildora.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Rodyna Farmacias" />
@@ -23,14 +24,176 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rodyna Farmacias | Salud y Bienestar" />
-    <meta name="twitter:description" content="Tu farmacia de confianza. Próximamente tienda online con envíos a CABA y AMBA." />
-    <meta name="twitter:image" content="https://www.rodynafarmacias.com.ar/pildora.png" />
+    <meta name="twitter:title" content="Rodyna Farmacias | Farmacia Online — CABA y AMBA" />
+    <meta name="twitter:description" content="Tu farmacia de confianza en CABA y AMBA. Dermocosmética, perfumería y medicamentos OTC. Próximamente tienda online con envíos a domicilio." />
+    <meta name="twitter:image" content="https://www.rodynafarmacias.com.ar/pildora.webp" />
 
-    <!-- Fuente Inter de Google Fonts -->
+    <!-- Google Fonts — Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Schema.org — Cadena farmacéutica + 4 sucursales -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.rodynafarmacias.com.ar/#organization",
+          "name": "Rodyna Farmacias",
+          "alternateName": "Farmacia Social Hunko",
+          "url": "https://www.rodynafarmacias.com.ar/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.rodynafarmacias.com.ar/cruz_color_claro.svg",
+            "width": 512,
+            "height": 512
+          },
+          "description": "Cadena de farmacias en CABA y AMBA. Dermocosmética, perfumería, medicamentos OTC y más.",
+          "areaServed": [
+            { "@type": "City", "name": "Ciudad Autónoma de Buenos Aires" },
+            { "@type": "AdministrativeArea", "name": "AMBA" }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/farmaciashunko/",
+            "https://www.facebook.com/FarmaciasHunko/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.rodynafarmacias.com.ar/#website",
+          "url": "https://www.rodynafarmacias.com.ar/",
+          "name": "Rodyna Farmacias",
+          "inLanguage": "es-AR",
+          "publisher": { "@id": "https://www.rodynafarmacias.com.ar/#organization" }
+        },
+        {
+          "@type": "Pharmacy",
+          "@id": "https://www.rodynafarmacias.com.ar/#pharmacy-caseros",
+          "name": "Rodyna Caseros",
+          "parentOrganization": { "@id": "https://www.rodynafarmacias.com.ar/#organization" },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Marcelo T. de Alvear 4787",
+            "addressLocality": "Caseros",
+            "addressRegion": "Buenos Aires",
+            "addressCountry": "AR"
+          },
+          "telephone": "+5491164127300",
+          "url": "https://www.rodynafarmacias.com.ar/sucursales",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "09:00",
+              "closes": "13:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "16:00",
+              "closes": "20:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday"],
+              "opens": "09:00",
+              "closes": "13:00"
+            }
+          ]
+        },
+        {
+          "@type": "Pharmacy",
+          "@id": "https://www.rodynafarmacias.com.ar/#pharmacy-liniers",
+          "name": "Rodyna Liniers",
+          "parentOrganization": { "@id": "https://www.rodynafarmacias.com.ar/#organization" },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Carhue 99",
+            "addressLocality": "Liniers",
+            "addressRegion": "Ciudad Autónoma de Buenos Aires",
+            "addressCountry": "AR"
+          },
+          "telephone": "+5491161333590",
+          "url": "https://www.rodynafarmacias.com.ar/sucursales",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "09:00",
+              "closes": "19:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday"],
+              "opens": "09:00",
+              "closes": "14:00"
+            }
+          ]
+        },
+        {
+          "@type": "Pharmacy",
+          "@id": "https://www.rodynafarmacias.com.ar/#pharmacy-almagro",
+          "name": "Rodyna Almagro",
+          "parentOrganization": { "@id": "https://www.rodynafarmacias.com.ar/#organization" },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Díaz Vélez 4500",
+            "addressLocality": "Almagro",
+            "addressRegion": "Ciudad Autónoma de Buenos Aires",
+            "addressCountry": "AR"
+          },
+          "telephone": "+5491122622826",
+          "url": "https://www.rodynafarmacias.com.ar/sucursales",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "08:00",
+              "closes": "20:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday"],
+              "opens": "09:00",
+              "closes": "14:00"
+            }
+          ]
+        },
+        {
+          "@type": "Pharmacy",
+          "@id": "https://www.rodynafarmacias.com.ar/#pharmacy-palermo",
+          "name": "Rodyna Palermo",
+          "parentOrganization": { "@id": "https://www.rodynafarmacias.com.ar/#organization" },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bulnes 2001",
+            "addressLocality": "Palermo",
+            "addressRegion": "Ciudad Autónoma de Buenos Aires",
+            "addressCountry": "AR"
+          },
+          "telephone": "+5491171538375",
+          "url": "https://www.rodynafarmacias.com.ar/sucursales",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+              "opens": "09:00",
+              "closes": "20:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday"],
+              "opens": "09:00",
+              "closes": "13:00"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- Skip link accesibilidad -->
     <style>

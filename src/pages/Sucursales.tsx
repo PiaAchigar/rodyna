@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { branches, type Branch } from '../lib/branches'
+import { SEO } from '../components/SEO'
 
 function IconSm({ path }: { path: string | string[] }) {
   const paths = Array.isArray(path) ? path : [path]
@@ -101,6 +102,11 @@ export default function Sucursales() {
 
   return (
     <>
+      <SEO
+        canonical="/sucursales"
+        title="Sucursales — Caseros, Liniers, Almagro y Palermo"
+        description="Encontrá las 4 sucursales de Rodyna Farmacias en CABA y AMBA: Caseros, Liniers, Almagro y Palermo. Horarios, teléfonos y obras sociales."
+      />
       {/* Hero de página */}
       <section className="bg-main-dark text-white py-14" aria-labelledby="sucursales-page-title">
         <div className="container-page">

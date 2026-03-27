@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { SEO } from '../components/SEO'
 
 const WHATSAPP_NUMBER = 'PLACEHOLDER_WHATSAPP' // TODO: reemplazar con número real
 
@@ -8,6 +9,11 @@ export default function Proximamente() {
       className="flex-1 flex items-center justify-center py-24 px-4 bg-white"
       aria-labelledby="proximamente-title"
     >
+      <SEO
+        canonical="/catalogo"
+        title="Catálogo — Próximamente"
+        description="Próximamente catálogo online de Rodyna Farmacias con envíos a CABA y AMBA. Dermocosmética, perfumería y medicamentos OTC."
+      />
       <div className="text-center max-w-lg">
         {/* Ícono */}
         <div className="w-24 h-24 bg-primary/10 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm">

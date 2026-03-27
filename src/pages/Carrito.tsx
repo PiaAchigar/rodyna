@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useCartStore } from '../store/useCartStore'
 import { useCurrencyStore } from '../store/useCurrencyStore'
 import { formatPrice } from '../lib/currency'
+import { SEO } from '../components/SEO'
 
 function EmptyCart() {
   return (
@@ -31,6 +32,7 @@ export default function Carrito() {
 
   return (
     <div className="container-page py-10">
+      <SEO canonical="/carrito" title="Carrito de compras" noindex={true} />
       <h1 className="text-3xl font-black text-main-dark mb-8">Tu Carrito</h1>
 
       <div className="flex flex-col lg:flex-row gap-8">

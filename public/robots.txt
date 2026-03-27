@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /cuenta
+Disallow: /carrito
+Disallow: /checkout
+Disallow: /mp/
+
+Sitemap: https://www.rodynafarmacias.com.ar/sitemap.xml
