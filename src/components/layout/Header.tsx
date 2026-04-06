@@ -1,30 +1,38 @@
-import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { useCartStore } from '../../store/useCartStore'
-import { useAuthStore } from '../../store/useAuthStore'
-import { useCurrencyStore } from '../../store/useCurrencyStore'
-import logoSvg from '../../assets/cruz_color_claro.svg'
+'use client'
 
-const WHATSAPP_NUMBER = 'PLACEHOLDER_WHATSAPP' // TODO: agregar número real de WhatsApp
+import { useState } from 'react'
+import Image from 'next/image'
+import { useTranslations, useLocale } from 'next-intl'
+import { Link, useRouter, usePathname } from '@/i18n/navigation'
+import { useCartStore } from '@/store/useCartStore'
+import { useAuthStore } from '@/store/useAuthStore'
+import { useCurrencyStore } from '@/store/useCurrencyStore'
+
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+5491161333590'
 
 export default function Header() {
-  const { t, i18n } = useTranslation()
+  const t = useTranslations()
+  const locale = useLocale()
+  const router = useRouter()
+  const pathname = usePathname()
+
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
+
   const totalItems = useCartStore((s) => s.totalItems())
   const { isAuthenticated } = useAuthStore()
   const { currency, toggle: toggleCurrency } = useCurrencyStore()
 
   const toggleLang = () => {
-    i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')
+    const nextLocale = locale === 'es' ? 'en' : 'es'
+    router.replace(pathname, { locale: nextLocale })
   }
 
   const navLinks = [
-    { to: '/', label: t('nav.home'), end: true },
-    { to: '/sucursales', label: t('nav.branches') },
-    { to: '/nosotros', label: t('nav.about') },
-    { to: '/catalogo', label: t('nav.catalog') },
+    { href: '/', label: t('nav.home') },
+    { href: '/sucursales', label: t('nav.branches') },
+    { href: '/nosotros', label: t('nav.about') },
+    { href: '/catalogo', label: t('nav.catalog') },
   ]
 
   return (
@@ -32,8 +40,20 @@ export default function Header() {
       <div className="container-page h-16 md:h-20 flex items-center justify-between gap-4">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Rodyna Farmacias – Inicio">
-          <img src={logoSvg} alt="Rodyna Farmacias" className="h-9 w-auto" />
+        <Link
+          href="/"
+          className="flex items-center gap-2 shrink-0"
+          aria-label="Rodyna Farmacias – Inicio"
+        >
+          <Image
+            src="/assets/cruz_color_claro.svg"
+            alt="Rodyna Farmacias"
+            width={36}
+            height={36}
+            className="h-9 w-auto"
+            priority
+            unoptimized
+          />
           <span className="text-lg font-extrabold tracking-tight text-main-dark hidden sm:block">
             Rodyna <span className="text-primary">Farmacias</span>
           </span>
@@ -42,16 +62,7 @@ export default function Header() {
         {/* Nav desktop */}
         <nav className="hidden md:flex items-center gap-6" aria-label="Navegación principal">
           {navLinks.map((l) => (
-            <NavLink
-              key={l.to}
-              to={l.to}
-              end={l.end}
-              className={({ isActive }) =>
-                `text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded ${
-                  isActive ? 'text-primary font-semibold' : 'text-secondary-gray'
-                }`
-              }
-            >
+            <NavLink key={l.href} href={l.href} currentPathname={pathname}>
               {l.label}
             </NavLink>
           ))}
@@ -80,7 +91,7 @@ export default function Header() {
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
             </svg>
-            {i18n.language === 'es' ? 'ES' : 'EN'}
+            {locale === 'es' ? 'ES' : 'EN'}
           </button>
 
           {/* Search */}
@@ -96,7 +107,7 @@ export default function Header() {
 
           {/* Cart */}
           <Link
-            to="/carrito"
+            href="/carrito"
             className="relative p-2 text-secondary-gray hover:text-main-dark hover:bg-light-bg rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={`${t('nav.cart')} (${totalItems} items)`}
           >
@@ -112,7 +123,7 @@ export default function Header() {
 
           {/* User */}
           <Link
-            to={isAuthenticated ? '/cuenta' : '/login'}
+            href={isAuthenticated ? '/cuenta' : '/login'}
             className="hidden sm:flex p-2 text-secondary-gray hover:text-main-dark hover:bg-light-bg rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             aria-label={isAuthenticated ? t('nav.account') : t('nav.login')}
           >
@@ -163,23 +174,18 @@ export default function Header() {
         <nav className="md:hidden border-t border-secondary-gray/20 bg-white" aria-label="Navegación móvil">
           <div className="container-page py-4 flex flex-col gap-1">
             {navLinks.map((l) => (
-              <NavLink
-                key={l.to}
-                to={l.to}
-                end={l.end}
+              <Link
+                key={l.href}
+                href={l.href}
                 onClick={() => setMenuOpen(false)}
-                className={({ isActive }) =>
-                  `px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
-                    isActive ? 'bg-primary/10 text-primary font-semibold' : 'text-secondary-gray hover:bg-light-bg'
-                  }`
-                }
+                className="px-4 py-3 rounded-xl text-sm font-medium transition-colors text-secondary-gray hover:bg-light-bg"
               >
                 {l.label}
-              </NavLink>
+              </Link>
             ))}
             <div className="border-t border-secondary-gray/20 pt-3 mt-2 flex items-center justify-between px-4">
               <Link
-                to={isAuthenticated ? '/cuenta' : '/login'}
+                href={isAuthenticated ? '/cuenta' : '/login'}
                 onClick={() => setMenuOpen(false)}
                 className="text-sm font-medium text-main-dark hover:text-primary transition-colors"
               >
@@ -189,10 +195,9 @@ export default function Header() {
                 onClick={toggleLang}
                 className="flex items-center gap-1 text-xs font-bold text-secondary-gray hover:text-main-dark transition-colors"
               >
-                {i18n.language === 'es' ? 'ES → EN' : 'EN → ES'}
+                {locale === 'es' ? 'ES → EN' : 'EN → ES'}
               </button>
             </div>
-            {/* WhatsApp CTA mobile */}
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
@@ -210,5 +215,30 @@ export default function Header() {
         </nav>
       )}
     </header>
+  )
+}
+
+// NavLink con estado activo basado en pathname
+function NavLink({
+  href,
+  currentPathname,
+  children,
+}: {
+  href: string
+  currentPathname: string
+  children: React.ReactNode
+}) {
+  const isActive = href === '/' ? currentPathname === '/' : currentPathname.startsWith(href)
+
+  return (
+    <Link
+      href={href as '/'}
+      className={`text-sm font-medium transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded ${
+        isActive ? 'text-primary font-semibold' : 'text-secondary-gray'
+      }`}
+      aria-current={isActive ? 'page' : undefined}
+    >
+      {children}
+    </Link>
   )
 }
